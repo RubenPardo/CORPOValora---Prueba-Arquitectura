@@ -1,4 +1,8 @@
-# web_dashboard
+# web_dashboard  => Dashboard Template
+
+- Se añaden plataformas Android e iOS
+- Estado de la app usando probider
+- Seañade ficheros de Firebase
 
 **In progress** 
 

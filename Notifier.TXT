@@ -6,3 +6,11 @@ Paso 5 -> Poner un consumidor del provider donde queremos que se repinte cuando 
 Paso 6 -> crear un pequeño a
 Provider.of<FirebaseUser>(context, listen: false).updateUser(new FirebaseUser("123", myController.value.text));
 Y asi obligar a repintar a todos los widgets que tengan el consumidor (actualizarUser.dart 45)
+
+
+Cambios Jesús
+
+- Cambio de la carpeta a "corpovalora_template", si no da error en el nombre
+- Ejecutar "flutter create ." para añadir Android, iOS y Windows
+- Elegir sdk32 para android  https://stackoverflow.com/questions/56938436/first-flutter-app-error-cannot-resolve-symbol-properties
+- Añadir firebase al proyecto
