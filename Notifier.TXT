@@ -1,0 +1,8 @@
+Paso 1 -> quite la clase abstracta de user porque no se como ponerle el extends ChangeNotifier
+Paso 2 -> cambie todo lo que dependia de user a por FirebaseUser
+Paso 3 -> en el objeto crear un metodo de updateUser que llame a notifyListeners() (firebase.dart 67)
+Paso 4 -> envolver el padre menos alto del que dependan de user con un change notifier provider (main.dart)
+Paso 5 -> Poner un consumidor del provider donde queremos que se repinte cuando se notifique (home.dart 44)
+Paso 6 -> crear un pequeño a
+Provider.of<FirebaseUser>(context, listen: false).updateUser(new FirebaseUser("123", myController.value.text));
+Y asi obligar a repintar a todos los widgets que tengan el consumidor (actualizarUser.dart 45)
