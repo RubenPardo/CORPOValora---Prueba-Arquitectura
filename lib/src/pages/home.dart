@@ -46,8 +46,7 @@ class _HomePageState extends State<HomePage> {
                     return Text(user.nombre);
                   },
                 ),
-                const Text('Sign Out')
-                
+                const Text(' Sign Out')
               ],
             )
           ),

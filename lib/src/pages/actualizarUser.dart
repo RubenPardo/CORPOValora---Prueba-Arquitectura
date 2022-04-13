@@ -22,29 +22,35 @@ class ActualizarUserPage extends StatefulWidget {
 }
 
 class _ActualizarUserPageState extends State<ActualizarUserPage> {
-  
-  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    var appState = Provider.of<AppState>(context);
-    return Column(
-      children: [
-        TextFormField(
-          controller: myController,
-              decoration: const InputDecoration(
-                labelText: 'Nombre',
+    //var appState = Provider.of<AppState>(context);
+
+    return Consumer<FirebaseUser>(
+        builder: (context, user, child) {
+          final myController = TextEditingController(text:user.nombre);
+
+          return Column(
+            children: [
+              TextFormField(
+//                initialValue: "ggggg",
+                controller: myController,
+                decoration: const InputDecoration(
+                  labelText: 'Nombre',
+                ),
+                onChanged: (newValue) {},
               ),
-              onChanged: (newValue) {
-                
-              },
-        ),
-        ElevatedButton(
-          child: Text("Actualizar"),
-          onPressed: (){
-              Provider.of<FirebaseUser>(context, listen: false).updateUser(new FirebaseUser("123", myController.value.text));
-          }), 
-      ],
+              ElevatedButton(
+                  child: Text("Actualizar"),
+                  onPressed: () {
+                    Provider.of<FirebaseUser>(context, listen: false)
+                        .updateUser(
+                        new FirebaseUser(user.uid, myController.value.text));
+                  }),
+            ],
+          );
+        }
     );
   }
 }

@@ -41,7 +41,7 @@ class FirebaseAuthService implements Auth {
 
     var authResult = await _auth.signInWithCredential(credential);
     
-    return FirebaseUser(authResult.user!.uid,"Nombre base");
+    return FirebaseUser(authResult.user!.uid, authResult.user!.displayName!); //Cambiado por Jesús
   }
 
   @override
